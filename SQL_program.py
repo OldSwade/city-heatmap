@@ -15,14 +15,14 @@ import csv
 from heatmap import heatmap_create  # heatmap_create function is imported from the file heatmap.py
 import sqlite3
 
-# Check if the scans_TXT9.txt file exists and has content
-if os.path.isfile("scans_TXT9.txt") and os.path.getsize("scans_TXT9.txt") > 0:
+# Check if the TXT_FILE.txt file exists and has content
+if os.path.isfile("TXT_FILE.txt") and os.path.getsize("TXT_FILE.txt") > 0:
     
     # Process to prepare the text from scans_TXT9.txt for JSON parsing
     print("JSON Format process for SQL db ...")
     
     # Read and preprocess the original text
-    original_txt = Path('scans_TXT9.txt').read_text(encoding="utf8")
+    original_txt = Path('TXT_FILE.txt').read_text(encoding="utf8")
     original_txt = original_txt.replace('\n','')
     original_txt = original_txt.replace('\'s','s')
     original_txt = original_txt.replace('\\', '/')
@@ -157,7 +157,7 @@ if os.path.isfile("scans_TXT9.txt") and os.path.getsize("scans_TXT9.txt") > 0:
     while valid.upper() == "Y" or valid.upper() == "YES":
         
         # Replace coordinates from Phone's GPS database
-        with open('GPS_Phone_db9.csv', mode ='r') as file:
+        with open('GPS_Phone_dbN.csv', mode ='r') as file:
             data = csv.reader(file, delimiter=",")
             list_data = list(data)
         
@@ -196,14 +196,4 @@ if os.path.isfile("scans_TXT9.txt") and os.path.getsize("scans_TXT9.txt") > 0:
 # Inform the user that the program has finished
 print("Program is finished")
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
